@@ -1,4 +1,3 @@
-# Valex-esi-bot
 import time
 import requests
 
@@ -18,8 +17,11 @@ def send_signal(symbol_name, rsi):
         msg = f"📊 الزوج: {symbol_name}\n🔽 إشارة: بيع (RSI = {rsi})"
     else:
         msg = f"❌ الزوج: {symbol_name} لا توجد فرصة واضحة (RSI = {rsi})"
-    requests.post(f"https://api.telegram.org/bot{TOKEN}/sendMessage",
-                  data={"chat_id": CHAT_ID, "text": msg})
+    
+requests.post(
+        f"https://api.telegram.org/bot{TOKEN}/sendMessage",
+        data={"chat_id": CHAT_ID, "text": msg}
+    )
 
 symbols = {
     "EUR/USD": "EUR/USD",
